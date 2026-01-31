@@ -1,0 +1,4 @@
+- devenv shell
+- python main.py
+- python main-stt-realtime.py
+- python main-tts-realtime.py
