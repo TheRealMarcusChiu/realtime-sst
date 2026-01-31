@@ -6,7 +6,6 @@ EOS_DETECTION_PAUSE = 0.45
 UNKNOWN_SENTENCE_DETECTION_PAUSE = 0.7
 MID_SENTENCE_DETECTION_PAUSE = 3.0
 
-
 def preprocess_text(text):
     # Remove leading whitespaces
     text = text.lstrip()
@@ -33,7 +32,6 @@ if __name__ == '__main__':
     def text_detected(text):
         global recorder, prev_text
         print(": ", text)
-
         text = preprocess_text(text)
         if text.endswith("..."):
             recorder.post_speech_silence_duration = MID_SENTENCE_DETECTION_PAUSE
@@ -46,7 +44,6 @@ if __name__ == '__main__':
     def process_text(text):
         global recorder, prev_text
         print("processed: ", text)
-
         recorder.post_speech_silence_duration = UNKNOWN_SENTENCE_DETECTION_PAUSE
         prev_text = ""
         text_detected("")
@@ -93,4 +90,3 @@ if __name__ == '__main__':
 
     while True:
         recorder.text(process_text)
-
